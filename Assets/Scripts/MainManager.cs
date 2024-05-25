@@ -11,12 +11,15 @@ public class MainManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
+    public Text highScoreText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
-    private int m_Points;
-    
+    public int m_Points;
+
+    public int highscore;
     private bool m_GameOver = false;
+
 
     
     // Start is called before the first frame update
@@ -40,6 +43,7 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
+        highScoreText.text = "Best Score: " + DataSaver.Instance.playerName + ": " + DataSaver.Instance.highscore;
         if (!m_Started)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -57,8 +61,10 @@ public class MainManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+           
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+
         }
     }
 
@@ -70,7 +76,18 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (m_Points > DataSaver.Instance.highscore)
+        {
+            DataSaver.Instance.highscore = m_Points;
+        }
+
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    // This is only for the button; this method isn't used in code
 }
