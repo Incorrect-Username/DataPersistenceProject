@@ -43,7 +43,7 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
-        highScoreText.text = "Best Score: " + DataSaver.Instance.playerName + ": " + DataSaver.Instance.highscore;
+        highScoreText.text = "Best Score: " + DataSaver.Instance.bestPlayerName + ": " + DataSaver.Instance.highscore;
         if (!m_Started)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -79,6 +79,7 @@ public class MainManager : MonoBehaviour
         if (m_Points > DataSaver.Instance.highscore)
         {
             DataSaver.Instance.highscore = m_Points;
+            DataSaver.Instance.bestPlayerName = DataSaver.Instance.playerName;
         }
 
         m_GameOver = true;

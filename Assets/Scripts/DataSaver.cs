@@ -6,7 +6,8 @@ public class DataSaver : MonoBehaviour
 {
   
   public static DataSaver Instance;
-  [SerializeField] public string playerName;
+  public string playerName;
+  public string bestPlayerName;
     public int highscore;
 
     private void Awake()
