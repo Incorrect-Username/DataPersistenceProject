@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void ExitGame()
     {
-    
+        DataSaver.Instance.SaveHighScore();
         Application.Quit(); // original code to quit Unity player
     }
 
