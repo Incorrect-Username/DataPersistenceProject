@@ -14,5 +14,8 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+        //DataSaver.Instance.highscore = 0;
+       // DataSaver.Instance.bestPlayerName = "";
+       // DataSaver.Instance.playerName = "";
     }
 }
